@@ -1,0 +1,25 @@
+[2024-04-01T22:27:09.707+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Chuksfx_ETL.transform_response manual__2024-04-01T22:27:03.757160+00:00 [queued]>
+[2024-04-01T22:27:09.718+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Chuksfx_ETL.transform_response manual__2024-04-01T22:27:03.757160+00:00 [queued]>
+[2024-04-01T22:27:09.719+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 0
+[2024-04-01T22:27:09.736+0000] {taskinstance.py:2217} INFO - Executing <Task(PythonOperator): transform_response> on 2024-04-01 22:27:03.757160+00:00
+[2024-04-01T22:27:09.742+0000] {standard_task_runner.py:60} INFO - Started process 2953 to run task
+[2024-04-01T22:27:09.748+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'Chuksfx_ETL', 'transform_response', 'manual__2024-04-01T22:27:03.757160+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/include/fx_dag.py', '--cfg-path', '/tmp/tmplgf0m484']
+[2024-04-01T22:27:09.750+0000] {standard_task_runner.py:88} INFO - Job 10: Subtask transform_response
+[2024-04-01T22:27:09.806+0000] {task_command.py:423} INFO - Running <TaskInstance: Chuksfx_ETL.transform_response manual__2024-04-01T22:27:03.757160+00:00 [running]> on host 506fa6827c3e
+[2024-04-01T22:27:09.863+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Chuks' AIRFLOW_CTX_DAG_ID='Chuksfx_ETL' AIRFLOW_CTX_TASK_ID='transform_response' AIRFLOW_CTX_EXECUTION_DATE='2024-04-01T22:27:03.757160+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-04-01T22:27:03.757160+00:00'
+[2024-04-01T22:27:09.865+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/include/transform.py", line 15, in transform_data
+    timestamp = response['timestamp']
+KeyError: 'timestamp'
+[2024-04-01T22:27:09.877+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=Chuksfx_ETL, task_id=transform_response, execution_date=20240401T222703, start_date=20240401T222709, end_date=20240401T222709
+[2024-04-01T22:27:09.887+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 10 for task transform_response ('timestamp'; 2953)
+[2024-04-01T22:27:09.922+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
