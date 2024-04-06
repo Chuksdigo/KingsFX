@@ -9,7 +9,7 @@ def extract_data(api_id, api_key):
     print(api_id, api_key)
     api_id = '10analysis697753392'
     api_key = 'm1nntji3h1uavbmd7cmumrn5cj'
-    currencies = ['NGN', 'GHS', 'KES', 'UGX', 'MAD', 'XDF', 'EGP']
+    currencies = ['NGN', 'GHS', 'KES', 'UGX', 'MAD', 'XDF', 'EGP', 'JPY']
     to_curr = ",".join(currencies)
     url = f'https://xecdapi.xe.com/v1/convert_from.json/?from=USD&to={to_curr}'
     
